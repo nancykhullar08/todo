@@ -10,28 +10,27 @@ from .serializers import Signupserializer, Loginserializer
 from rest_framework.permissions import IsAuthenticated
 
 class SignupView(APIView):
-
-    
-        
     """
-    #list all objects
-    def get(self,request):
-        signup= User.objects.all()
-        serializer = Signupserializer(signup)
-        return Response(serializer.data)
-     """   
-    
-    # create objects
-     
+    SignupView used for Sign Up.
+
+    """
+
     def post(self, request):
+        """
+        Post method used for Sign Up.
+        
+        param: request
+        return : Response
+        """
         print(request.data )
-        #
         # import pdb;pdb.set_trace()
         serializer = Signupserializer(data=request.data)
         print(serializer.is_valid(raise_exception = True))
         user = serializer.save()
+        #encrypt password
         user.set_password(serializer.validated_data.get('password'))
         user.save()
+        #create or get token for user
         token, created= Token.objects.get_or_create(user=user)
         data= serializer.data
         data['token'] = token.key
@@ -39,9 +38,18 @@ class SignupView(APIView):
         return Response({"data" :data})
 
 class LoginView(APIView):
+    """
+    LoginView used for Login.
+    """
 
 
     def post(self,request):
+        """
+        POst method used for Login.
+
+        param : request
+        return : Response
+        """
         
         serializer = Loginserializer(data= request.data)
         serializer.is_valid(raise_exception = True)

@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 AUTH_USER_MODEL = 'User.User'
 # Application definition
 
@@ -37,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'Todo.apps.User',
+    
+    #third party packages
     'django_extensions',
     'rest_framework',
-    'Todo.apps.User',
-    #auth token
     'rest_framework.authtoken',
 ]
 
@@ -55,6 +58,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+AUTH_USER_MODEL = 'User.User'
 
 TEMPLATES = [
     {
@@ -126,6 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#Importing Token authentication classes 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',

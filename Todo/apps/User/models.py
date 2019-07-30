@@ -6,6 +6,13 @@ from rest_framework import permissions
 
 class User(AbstractUser,PermissionsMixin,models.Model):
 
+    """
+    MyUser models used for the authentication process and it contains basic
+    fields.
+    Inherit : AbstractBaseUser, PermissionMixin
+
+    """
+
     email=models.EmailField('email',max_length= 50,unique = True, blank= False)
 
     username= models.CharField('username',max_length= 70, unique = True, blank = False)
@@ -18,6 +25,7 @@ class User(AbstractUser,PermissionsMixin,models.Model):
     EMAIL_FIELD='email'
     
     class Meta:
+        #renaming database table
         db_table = '_user'
 
     

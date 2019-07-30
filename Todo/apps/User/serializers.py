@@ -1,12 +1,13 @@
 from rest_framework import serializers
 from rest_framework.serializers import ValidationError
-
-
 from rest_framework.response import Response
 from .models import User
 from django.contrib.auth import authenticate
 
 class Signupserializer(serializers.ModelSerializer):
+    """
+    Serializer used for Sign Up
+    """
     email = serializers.EmailField(required=True, min_length=3, max_length=70)
     password = serializers.CharField(required=True, min_length=8, max_length=20)
 
@@ -16,18 +17,30 @@ class Signupserializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate_email(self, email):
+
+        """
+        Method used for validating email address.
+        """
         email.lower()
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError('Email already registered.')
         return email
 
     def password_length(self, password):
-        #pwd = User.objects.filter(password=password)
+
+        """
+        Method used for checking password length.
+        """
+        
         if len(password) < 8 :
             raise serializers.ValidationError('length should be greater than 8.')
         return password
 
 class Loginserializer(serializers.ModelSerializer):
+    """
+    Serializer used for LogIn User data.
+    """
+
     password=serializers.CharField()
     username=serializers.CharField()
    
@@ -36,13 +49,22 @@ class Loginserializer(serializers.ModelSerializer):
         model = User
         fields=['username','password']
     
-    def validate(self,attrs):  #attrs is a dictionary
+    def validate(self,attrs):  
+        #attrs is a dictionary
+        """
+        Method used for validating User data.
+        
+        param : attrs is a dictionary that contains user data.
+        return : attrs
+        """
         # import pdb;pdb.set_trace()
         username=attrs.get("username")
         password = attrs.get("password")
+        #using django authenticate method for validating user credentials
         user= authenticate(username=username, password = password)
 
         if user is not None:
+
             attrs['user'] = user
             
         
