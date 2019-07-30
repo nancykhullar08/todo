@@ -8,7 +8,8 @@ Todo
  1.Install OS(Ubuntu) Requirements.
  
  2.Clone Project
-    _git clone <repository> todo_
+ 
+    **git clone https://github.com/nancykhullar08/todo.git**
 
 
 ## Setting Virtual Environment
