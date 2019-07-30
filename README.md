@@ -9,7 +9,7 @@ Todo
  
  2.Clone Project
  
-    **git clone https://github.com/nancykhullar08/todo.git**
+     git clone https://github.com/nancykhullar08/todo.git
 
 
 ## Setting Virtual Environment
