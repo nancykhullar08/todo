@@ -1,4 +1,5 @@
 Todo
+<<<<<<< HEAD
 ==============
 
 
@@ -8,6 +9,20 @@ Todo
 
  2.Clone Project
     _git clone <repository> todo_
+=======
+============================================================================================================================
+
+
+
+## Installation
+ 
+ 1.Install OS(Ubuntu) Requirements.
+ 
+ 2.Clone Project
+ 
+     git clone https://github.com/nancykhullar08/todo.git
+
+>>>>>>> d46ee9d506d95a763c03407bcc32ad7abdd0f581
 
 ## Setting Virtual Environment
 
@@ -32,11 +47,19 @@ Todo
    
 ## Make migrations
 
+<<<<<<< HEAD
    python manage.py makemigrations
 
 ## run migrations
    
    python manage.py migrate
+=======
+    python manage.py makemigrations
+
+## Run migrations
+   
+    python manage.py migrate
+>>>>>>> d46ee9d506d95a763c03407bcc32ad7abdd0f581
 
 ## Create a superuser
 
@@ -47,4 +70,7 @@ Todo
     python manage.py runserver
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d46ee9d506d95a763c03407bcc32ad7abdd0f581
