@@ -8,12 +8,11 @@ class Signupserializer(serializers.ModelSerializer):
     """
     Serializer used for Sign Up
     """
-    email = serializers.EmailField(required=True, min_length=3, max_length=70)
-    password = serializers.CharField(required=True, min_length=8, max_length=20)
+    
 
     class Meta:
         model= User
-        fields= ['email','username','password']
+        fields= ('email','username','password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate_email(self, email):
@@ -21,7 +20,7 @@ class Signupserializer(serializers.ModelSerializer):
         """
         Method used for validating email address.
         """
-        email.lower()
+        email=email.lower()
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError('Email already registered.')
         return email
@@ -45,9 +44,6 @@ class Loginserializer(serializers.ModelSerializer):
     username=serializers.CharField()
    
 
-    class Meta:
-        model = User
-        fields=['username','password']
     
     def validate(self,attrs):  
         #attrs is a dictionary
@@ -57,9 +53,10 @@ class Loginserializer(serializers.ModelSerializer):
         param : attrs is a dictionary that contains user data.
         return : attrs
         """
-        # import pdb;pdb.set_trace()
+        
         username=attrs.get("username")
         password = attrs.get("password")
+
         #using django authenticate method for validating user credentials
         user= authenticate(username=username, password = password)
 
