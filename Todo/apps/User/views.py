@@ -22,12 +22,11 @@ class SignupView(APIView):
         param: request
         return : Response
         """
-        print(request.data )
-        # import pdb;pdb.set_trace()
+  
         serializer = Signupserializer(data=request.data)
         print(serializer.is_valid(raise_exception = True))
         user = serializer.save()
-        #encrypt password
+        #hash password
         user.set_password(serializer.validated_data.get('password'))
         user.save()
         #create or get token for user

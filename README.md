@@ -1,5 +1,5 @@
 Todo
-============================================================================================================================
+==============
 
 
 
@@ -35,11 +35,14 @@ Todo
    
 ## Make migrations
 
+
     python manage.py makemigrations
+
 
 ## Run migrations
    
     python manage.py migrate
+
 
 ## Create a superuser
 

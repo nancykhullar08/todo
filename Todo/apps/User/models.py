@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import (AbstractUser,PermissionsMixin)
+from django.contrib.auth.models import (AbstractUser)
 from rest_framework import permissions
 
 
 
-class User(AbstractUser,PermissionsMixin,models.Model):
+class User(AbstractUser):
 
     """
     MyUser models used for the authentication process and it contains basic
@@ -17,9 +17,9 @@ class User(AbstractUser,PermissionsMixin,models.Model):
 
     username= models.CharField('username',max_length= 70, unique = True, blank = False)
 
-    is_superuser = models.BooleanField(default=False)
+    #is_superuser = models.BooleanField(default=False)
 
-    password = models.CharField('password', max_length= 500, blank= False)
+    #password = models.CharField('password', max_length= 500, blank= False)
 
     USERNAME_FIELD='username'
     EMAIL_FIELD='email'
