@@ -36,7 +36,7 @@ Todo
 ## Make migrations
 
 
-   python manage.py makemigrations
+    python manage.py makemigrations
 
 
 ## Run migrations
