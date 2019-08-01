@@ -1,14 +1,8 @@
 Todo
-
-
-##Installation
- 
- 1. Install OS(Ubuntu) Requirements.
-
- 2.Clone Project
-    _git clone <repository> todo_
+<<<<<<< HEAD
 =======
-============================================================================================================================
+==============
+>>>>>>> a54ed16a1c19af6aadec58a9de9126465b62400b
 
 
 
@@ -44,11 +38,20 @@ Todo
    
 ## Make migrations
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a54ed16a1c19af6aadec58a9de9126465b62400b
     python manage.py makemigrations
+
 
 ## Run migrations
    
     python manage.py migrate
+<<<<<<< HEAD
+=======
+
+>>>>>>> a54ed16a1c19af6aadec58a9de9126465b62400b
 
 ## Create a superuser
 
