@@ -22,9 +22,9 @@ class SignupView(APIView):
         param: request
         return : Response
         """
-  
-        serializer = Signupserializer(data=request.data)
-        print(serializer.is_valid(raise_exception = True))
+        
+        serializer = Signupserializer(data=request.data,context={"confirm_password":request.data.get('confirm_password')})
+        serializer.is_valid(raise_exception = True)
         user = serializer.save()
         #hash password
         user.set_password(serializer.validated_data.get('password'))
